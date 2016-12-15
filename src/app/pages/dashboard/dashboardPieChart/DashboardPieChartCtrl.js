@@ -4,17 +4,35 @@
     angular.module('BlurAdmin.pages.dashboard')
         .controller('DashboardPieChartCtrl', DashboardPieChartCtrl);
 
-    function DashboardPieChartCtrl($scope, $timeout, baConfig, baUtil) {
+    function DashboardPieChartCtrl($scope, $rootScope, $timeout, baConfig, baUtil) {
+
+        var countRef = firebase.database().ref('crises');
+        $scope.counters = {}
+        countRef.on('value', function (snapshot) {
+            let temp = {};
+            temp.rescued = 0;
+            temp.total = snapshot.val().count;
+            temp.rescued = temp.total
+
+            for (let i = 0; i < snapshot.val().open.length; i++) {
+                temp.rescued -= snapshot.val().open[i].count;
+            }
+            console.log(temp);
+            $scope.counters = temp;
+            $scope.$digest();
+            // $scope.available = snapshot.val().count;
+            // $scope.busy = snapshot.val().count;
+        });
         var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
         $scope.charts = [{
             color: pieColor,
             description: 'Emergency',
-            stats: '794',
+            stats: $scope.counters.total,
             icon: 'exclamation-circle'
         }, {
             color: pieColor,
             description: 'Rescued',
-            stats: '764',
+            stats: $scope.counters.rescued,
             icon: 'life-ring'
         }, {
             color: pieColor,
@@ -23,7 +41,7 @@
             icon: 'truck'
         }, {
             color: pieColor,
-            description: 'Returned',
+            description: 'Busy',
             stats: '404',
             icon: 'refresh'
         }
