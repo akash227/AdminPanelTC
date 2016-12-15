@@ -3,11 +3,11 @@
 
     angular.module('BlurAdmin.pages', [
         'ui.router',
-
+        'BlurAdmin.pages.driver',
         'BlurAdmin.pages.dashboard',
-        'BlurAdmin.pages.tables',
+        
         'BlurAdmin.pages.charts',
-        'BlurAdmin.pages.profile',
+        'BlurAdmin.pages.profile'
     ])
         .config(routeConfig);
 

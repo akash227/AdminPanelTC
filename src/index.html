@@ -67,7 +67,18 @@
 <!-- endbuild -->
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS5v5oi7pcpUFd_QVO25QWD8xzShPjG2o">
 </script>
-
+<script defer src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAFcBgwQRlV78tauC7p1K6zcl9N8F_P2SI",
+        authDomain: "tackle-crises.firebaseapp.com",
+        databaseURL: "https://tackle-crises.firebaseio.com",
+        storageBucket: "tackle-crises.appspot.com",
+        messagingSenderId: "461619676904"
+    };
+    firebase.initializeApp(config);
+</script>
 <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
 <!-- inject:js -->
 <!-- js files will be automatically insert here -->

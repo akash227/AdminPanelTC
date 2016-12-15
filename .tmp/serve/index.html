@@ -138,13 +138,25 @@
 <!-- endbuild -->
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS5v5oi7pcpUFd_QVO25QWD8xzShPjG2o">
 </script>
-
+<script defer src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAFcBgwQRlV78tauC7p1K6zcl9N8F_P2SI",
+        authDomain: "tackle-crises.firebaseapp.com",
+        databaseURL: "https://tackle-crises.firebaseio.com",
+        storageBucket: "tackle-crises.appspot.com",
+        messagingSenderId: "461619676904"
+    };
+    firebase.initializeApp(config);
+</script>
 <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
 <!-- inject:js -->
 <script src="app/pages/pages.module.js"></script>
 <script src="app/theme/theme.module.js"></script>
 <script src="app/pages/charts/charts.module.js"></script>
 <script src="app/pages/dashboard/dashboard.module.js"></script>
+<script src="app/pages/driver/driver.module.js"></script>
 <script src="app/pages/profile/profile.module.js"></script>
 <script src="app/pages/tables/tables.module.js"></script>
 <script src="app/pages/ui/ui.module.js"></script>
@@ -157,8 +169,8 @@
 <script src="app/pages/ui/modals/modals.module.js"></script>
 <script src="app/pages/ui/notifications/notifications.module.js"></script>
 <script src="app/pages/ui/panels/panels.module.js"></script>
-<script src="app/pages/ui/progressBars/progressBars.module.js"></script>
 <script src="app/pages/ui/slider/slider.module.js"></script>
+<script src="app/pages/ui/progressBars/progressBars.module.js"></script>
 <script src="app/pages/ui/tabs/tabs.module.js"></script>
 <script src="app/pages/ui/typography/typography.module.js"></script>
 <script src="app/app.js"></script>
@@ -167,6 +179,7 @@
 <script src="app/theme/theme.constants.js"></script>
 <script src="app/theme/theme.run.js"></script>
 <script src="app/theme/theme.service.js"></script>
+<script src="app/pages/driver/DriverCtrl.js"></script>
 <script src="app/pages/profile/ProfileModalCtrl.js"></script>
 <script src="app/pages/profile/ProfilePageCtrl.js"></script>
 <script src="app/pages/tables/TablesPageCtrl.js"></script>
